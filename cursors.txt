@@ -1,0 +1,35 @@
+Sticky and Skewed Cursor
+https://codepen.io/maghno/pen/wvLmvpN
+
+Letters mouse follow
+https://codepen.io/supah/pen/vYMGREY
+
+Center of Gravity & Mouse Interaction w/ Spline
+https://codepen.io/gusevdigital/pen/xxBWwVG
+
+Particle and line animation on cursor hover
+https://codepen.io/saheeranas/details/PorEBOL
+
+3D PIXEL CURSOR
+https://codepen.io/Tcip/details/GRLdExP
+
+CPChallenge: Colorful bubble trailers
+https://codepen.io/tommyho/pen/oNOoPvj
+
+Awesome Cursor Animation on Mouse-move
+https://codepen.io/sk-chaurasiya/details/gOJwOLG
+
+Sticky Text Button
+https://codepen.io/mustafauncuoglu/pen/rNgzPJE
+
+some cursor trailers
+https://codepen.io/acctforjudge/pen/yLdXpRy
+
+Mouse button hover
+https://codepen.io/JepardMay/pen/rNgmaZX
+
+Ripple Effect
+https://codepen.io/freemqn/pen/YzoXZyr
+
+Spray Paint Trail
+https://codepen.io/pleasedonotdisturb/pen/NWVZMya

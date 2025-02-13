@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - СУ "Йордан Йовков"</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY" defer></script>
+    <script src="/js/contact.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="/images/home/logo.png" alt="СУ Йордан Йовков">
+
+        <div class="nav-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="#a">За паралелката</a></li>
+                <li>
+                    <a href="#program">Обучение</a>
+                    <ul>
+                        <li><a href="#curriculum">Учебна програма</a></li>
+                        <li><a href="#extracurricular">Извънкласни дейности</a></li>
+                    </ul>
+                </li>
+                <li><a href="#projects">Проекти</a></li>
+                <li><a href="contact.html" class="active">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="contact-section">
+            <h1>Свържете се с нас</h1>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Информация за контакт</h2>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>044 667 244</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Кв. ж.к. Българка, 8800 Сливен</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Отваря в 07:00 ч.</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Изпратете съобщение</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="Вашето име">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Вашият имейл">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required placeholder="Относно">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="Вашето съобщение"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Изпрати</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="map" class="google-map"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p> 2025 СУ "Йордан Йовков" - Сливен | Всички права запазени</p>
+    </footer>
+
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
