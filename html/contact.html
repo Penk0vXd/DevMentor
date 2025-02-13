@@ -6,6 +6,7 @@
     <title>Контакти - СУ "Йордан Йовков"</title>
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY" defer></script>
     <script src="/js/contact.js" defer></script>
 </head>
@@ -36,53 +37,181 @@
         </nav>
     </header>
 
-    <div class="container">
-        <section class="contact-section">
-            <h1>Свържете се с нас</h1>
-            
+    <main class="contact-page">
+        <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Информация за контакт</h2>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <p>044 667 244</p>
+                <div class="contact-info-card">
+                    <div class="info-header">
+                        <h2>Информация за контакт</h2>
+                        <p>Можете да се свържете с нас по някой от следните начини:</p>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Кв. ж.к. Българка, 8800 Сливен</p>
+                    
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="icon-circle">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Телефон</h3>
+                                <p>044 667 244</p>
+                                <small>Понеделник - Петък: 8:00 - 17:00</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-circle">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Адрес</h3>
+                                <p>Кв. ж.к. Българка</p>
+                                <p>8800 Сливен</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-circle">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Работно време</h3>
+                                <p>Отваря в 07:00 ч.</p>
+                                <small>Учебни дни</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-circle">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Имейл</h3>
+                                <p>info-2000114@edu.mon.bg</p>
+                                <small>Ще отговорим възможно най-скоро</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <p>Отваря в 07:00 ч.</p>
+
+                    <div class="social-links">
+                        <h3>Последвайте ни</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon facebook" aria-label="Facebook">
+                                <div class="icon-wrapper">
+                                    <i class="fab fa-facebook-f"></i>
+                                </div>
+                                <span class="social-tooltip">Facebook</span>
+                            </a>
+                            <a href="#" class="social-icon instagram" aria-label="Instagram">
+                                <div class="icon-wrapper">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <span class="social-tooltip">Instagram</span>
+                            </a>
+                            <a href="#" class="social-icon youtube" aria-label="YouTube">
+                                <div class="icon-wrapper">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                <span class="social-tooltip">YouTube</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <h2>Изпратете съобщение</h2>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="Вашето име">
+                <div class="contact-form-card">
+                    <div class="form-header">
+                        <h2>Изпратете съобщение</h2>
+                        <p>Попълнете формуляра по-долу и ще се свържем с вас възможно най-скоро</p>
+                    </div>
+                    
+                    <form id="contactForm" class="modern-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Име</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Имейл</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Вашият имейл">
+                            <label for="subject">Относно</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Изберете тема</option>
+                                <option value="general">Обща информация</option>
+                                <option value="admission">Прием</option>
+                                <option value="program">Учебна програма</option>
+                                <option value="other">Друго</option>
+                            </select>
                         </div>
+
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" required placeholder="Относно">
+                            <label for="message">Съобщение</label>
+                            <textarea id="message" name="message" required rows="5"></textarea>
                         </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" required placeholder="Вашето съобщение"></textarea>
+
+                        <div class="form-group privacy-consent">
+                            <div class="consent-container">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" required>
+                                    <div class="checkbox-wrapper">
+                                        <i class="fas fa-check check-icon"></i>
+                                    </div>
+                                </label>
+                                <div class="consent-text">
+                                    <p>Съгласен съм с обработката на личните данни според</p>
+                                    <div class="consent-links">
+                                        <a href="privacy.html" class="privacy-link">
+                                            <i class="fas fa-shield-alt"></i>
+                                            Политика за поверителност
+                                        </a>
+                                        <span class="separator">и</span>
+                                        <a href="terms.html" class="privacy-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            Условия за ползване
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="submit-btn">Изпрати</button>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Изпрати съобщение
+                        </button>
                     </form>
                 </div>
             </div>
 
-            <div id="map" class="google-map"></div>
-        </section>
-    </div>
+            <div class="map-section">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d733.209727225909!2d26.33898112513345!3d42.685954559339976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a627342e1a9943%3A0xbb3cff58694a0d57!2z0KHRgNC10LTQvdC-INGD0YfQuNC70LjRidC1INCZ0L7RgNC00LDQvSDQmdC-0LLQutC-0LI!5e0!3m2!1sbg!2sbg!4v1739480475945!5m2!1sbg!2sbg" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <footer>
-        <p> 2025 СУ "Йордан Йовков" - Сливен | Всички права запазени</p>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p> 2025 СУ "Йордан Йовков" - Сливен</p>
+                <p>Всички права запазени</p>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy">Поверителност</a>
+                <a href="/terms">Условия за ползване</a>
+                <a href="/sitemap">Карта на сайта</a>
+            </div>
+        </div>
     </footer>
 
     <script src="/js/main.js" defer></script>
