@@ -314,6 +314,10 @@
     color: #fff;
 }
 
+textarea {
+    resize: vertical;
+}
+
 /* Privacy Consent Styles */
 .privacy-consent {
     margin: 25px 0;
