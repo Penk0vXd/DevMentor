@@ -124,9 +124,9 @@ h1::after {
     background: white;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(168, 85, 247, 0.1);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -142,15 +142,16 @@ h1::after {
     left: 0;
     width: 4px;
     height: 100%;
-    background: #1a73e8;
+    background: linear-gradient(135deg, #A855F7, #7928CA);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .subject:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(26, 115, 232, 0.15);
-    border-color: rgba(26, 115, 232, 0.3);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.3);
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.03), rgba(121, 40, 202, 0.03));
 }
 
 .subject:hover::before {
@@ -169,17 +170,19 @@ h1::after {
 
 .subject-icon {
     font-size: 1.8rem;
-    background: rgba(26, 115, 232, 0.1);
-    padding: 8px;
-    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(121, 40, 202, 0.1));
+    padding: 12px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);
 }
 
 .subject:hover .subject-icon {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(121, 40, 202, 0.15));
 }
 
 .subject p {
@@ -250,7 +253,7 @@ h1::after {
 
 /* Подобрения за достъпност */
 .buttons button:focus {
-    outline: 3px solid rgba(26, 115, 232, 0.4);
+    outline: 3px solid rgba(149, 117, 205, 0.4);
     outline-offset: 2px;
 }
 
@@ -281,12 +284,12 @@ h1::after {
     }
 
     #grade-title {
-        color: #fff;
+        color: #A855F7;
     }
 
     .subject:hover {
-        border-color: #66b3ff;
-        background: #333;
+        border-color: #A855F7;
+        background: rgba(168, 85, 247, 0.1);
     }
 }
 
@@ -307,8 +310,13 @@ h1::after {
 }
 
 .empty-message i {
-    margin-bottom: 15px;
-    animation: pointUp 1.5s ease-in-out infinite;
+    color: #4a90e2 !important;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(103, 184, 255, 0.1));
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
 }
 
 .empty-message p {
@@ -332,13 +340,21 @@ h1::after {
     }
 
     .empty-message i {
-        color: #66b3ff !important;
+        color: #A855F7 !important;
+    }
+
+    #grade-title {
+        color: #A855F7;
+    }
+    
+    #grade-title::after {
+        background: linear-gradient(135deg, #A855F7, #7928CA);
     }
 }
 
 #grade-title {
     text-align: center;
-    color: #1a73e8;
+    color: #A855F7;
     font-size: 2.2rem;
     font-weight: 600;
     margin: 20px 0 30px;
@@ -355,7 +371,7 @@ h1::after {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #1a73e8, #66b3ff);
+    background: linear-gradient(135deg, #A855F7, #7928CA);
     border-radius: 2px;
     transition: width 0.3s ease;
 }
@@ -380,19 +396,8 @@ h1::after {
     animation: titleChange 0.4s ease forwards;
 }
 
-/* Добавяме стилове за тъмен режим */
-@media (prefers-color-scheme: dark) {
-    #grade-title {
-        color: #66b3ff;
-    }
-    
-    #grade-title::after {
-        background: linear-gradient(90deg, #66b3ff, #99ccff);
-    }
+.subject:hover {
+    border-color: #66b3ff;
+    background: #333;
 }
-
-    .subject:hover {
-        border-color: #66b3ff;
-        background: #333;
-    }
-} 
+ 
