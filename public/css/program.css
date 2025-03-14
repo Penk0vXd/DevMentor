@@ -1,0 +1,398 @@
+/* Основни стилове */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #1a73e8, #66b3ff);
+}
+
+h1 {
+    text-align: center;
+    color: #1a73e8;
+    margin-bottom: 35px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #1a73e8, #66b3ff);
+    border-radius: 2px;
+}
+
+/* Стилове за бутоните */
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    padding: 10px;
+    background: rgba(26, 115, 232, 0.05);
+    border-radius: 30px;
+}
+
+.buttons button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: none;
+    background: transparent;
+    color: #1a73e8;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.buttons button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a73e8;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.buttons button:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.buttons button:hover::before {
+    transform: translateX(0);
+}
+
+.buttons button.active {
+    background: #1a73e8;
+    color: white;
+    border: 2px solid #1a73e8;
+    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+}
+
+/* Добавяме стил за активен бутон при hover */
+.buttons button.active:hover {
+    background: #1557b0;
+    border-color: #1557b0;
+}
+
+/* Стилове за съдържанието */
+.curriculum-content {
+    padding: 35px;
+    background: #f8f9fa;
+    border-radius: 18px;
+    margin-top: 25px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03);
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+    padding: 15px;
+    max-width: 100%;
+}
+
+.subject {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+
+.subject::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #1a73e8;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.subject:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(26, 115, 232, 0.15);
+    border-color: rgba(26, 115, 232, 0.3);
+}
+
+.subject:hover::before {
+    opacity: 1;
+}
+
+.subject h3 {
+    color: #1a73e8;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.subject-icon {
+    font-size: 1.8rem;
+    background: rgba(26, 115, 232, 0.1);
+    padding: 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.subject:hover .subject-icon {
+    transform: scale(1.1);
+}
+
+.subject p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    flex-grow: 1;
+    margin-left: 3px;
+}
+
+/* Отзивчив дизайн */
+@media (max-width: 992px) {
+    .subjects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .subject {
+        min-height: 150px;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .curriculum-content {
+        padding: 15px;
+    }
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subject {
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* Подобрения за достъпност */
+.buttons button:focus {
+    outline: 3px solid rgba(26, 115, 232, 0.4);
+    outline-offset: 2px;
+}
+
+/* Тъмна тема */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+    }
+
+    .container {
+        background: #2d2d2d;
+    }
+
+    .curriculum-content {
+        background: #333;
+    }
+
+    .subject {
+        background: #2d2d2d;
+    }
+
+    .subject h3 {
+        color: #66b3ff;
+    }
+
+    .subject p {
+        color: #e0e0e0;
+    }
+
+    #grade-title {
+        color: #fff;
+    }
+
+    .subject:hover {
+        border-color: #66b3ff;
+        background: #333;
+    }
+}
+
+/* Стил за празно съдържание */
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-message i {
+    margin-bottom: 15px;
+    animation: pointUp 1.5s ease-in-out infinite;
+}
+
+.empty-message p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@keyframes pointUp {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (prefers-color-scheme: dark) {   
+    .empty-message {
+        background: #2d2d2d;
+        color: #e0e0e0;
+    }
+
+    .empty-message i {
+        color: #66b3ff !important;
+    }
+}
+
+#grade-title {
+    text-align: center;
+    color: #1a73e8;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 20px 0 30px;
+    padding-bottom: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#grade-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #1a73e8, #66b3ff);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+#grade-title:hover::after {
+    width: 100px;
+}
+
+/* Добавяме анимация при смяна на клас */
+@keyframes titleChange {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#grade-title.animate {
+    animation: titleChange 0.4s ease forwards;
+}
+
+/* Добавяме стилове за тъмен режим */
+@media (prefers-color-scheme: dark) {
+    #grade-title {
+        color: #66b3ff;
+    }
+    
+    #grade-title::after {
+        background: linear-gradient(90deg, #66b3ff, #99ccff);
+    }
+}
+
+    .subject:hover {
+        border-color: #66b3ff;
+        background: #333;
+    }
+} 
