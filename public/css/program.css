@@ -121,7 +121,7 @@ h1::after {
 }
 
 .subject {
-    background: white;
+    background: #2d2d2d;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(168, 85, 247, 0.08);
@@ -133,29 +133,6 @@ h1::after {
     min-height: 180px;
     position: relative;
     overflow: hidden;
-}
-
-.subject::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(135deg, #A855F7, #7928CA);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.subject:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.15);
-    border-color: rgba(168, 85, 247, 0.3);
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.03), rgba(121, 40, 202, 0.03));
-}
-
-.subject:hover::before {
-    opacity: 1;
 }
 
 .subject h3 {
@@ -180,13 +157,47 @@ h1::after {
     box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);
 }
 
-.subject:hover .subject-icon {
-    transform: scale(1.1) rotate(5deg);
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(121, 40, 202, 0.15));
+.subject::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #A855F7, #7928CA);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
+.subject:hover {
+    background: linear-gradient(135deg, #4a2e93, #3b83f663);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.25);
+}
+
+.subject:hover .subject-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(194, 139, 247, 0.404), rgba(170, 105, 235, 0.432));
+}
+
+.subject:hover h3{
+    color: white;
+}
+
+.subject:hover p{
+    color: whitesmoke;
+}
+
+.subject:hover::before {
+    opacity: 1;
+}
+
+
+
+
 .subject p {
-    color: #555;
+    color: #e0e0e0;    
     line-height: 1.7;
     font-size: 1.05rem;
     flex-grow: 1;
@@ -247,10 +258,6 @@ h1::after {
     }
 }
 
-.subject {
-    animation: slideIn 0.5s ease forwards;
-}
-
 /* Подобрения за достъпност */
 .buttons button:focus {
     outline: 3px solid rgba(149, 117, 205, 0.4);
@@ -271,25 +278,155 @@ h1::after {
         background: #333;
     }
 
-    .subject {
-        background: #2d2d2d;
+    
+    
+    /* Отзивчив дизайн */
+    @media (max-width: 992px) {
+        .subjects-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .subjects-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    
+        .subject {
+            min-height: 150px;
+        }
+    
+        .container {
+            margin: 10px;
+            padding: 15px;
+        }
+    
+        h1 {
+            font-size: 2rem;
+        }
+    
+        .buttons {
+            flex-direction: column;
+            gap: 10px;
+        }
+    
+        .buttons button {
+            width: 100%;
+            padding: 15px;
+        }
+    
+        .curriculum-content {
+            padding: 15px;
+        }
+    }
+    
+    /* Анимации */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Подобрения за достъпност */
+    .buttons button:focus {
+        outline: 3px solid rgba(149, 117, 205, 0.4);
+        outline-offset: 2px;
+    }
+    
+    /* Стил за празно съдържание */
+    .empty-message {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-size: 1.2rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .empty-message i {
+        color: #4a90e2 !important;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(103, 184, 255, 0.1));
+        padding: 20px;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+    }
+    
+    .empty-message p {
+        margin: 0;
+        line-height: 1.6;
+    }
+    
+    @keyframes pointUp {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
     }
 
-    .subject h3 {
-        color: #66b3ff;
+    
+    #grade-title {
+        text-align: center;
+        color: #A855F7;
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin: 20px 0 30px;
+        padding-bottom: 15px;
+        position: relative;
+        transition: all 0.3s ease;
     }
-
-    .subject p {
-        color: #e0e0e0;
+    
+    #grade-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(135deg, #A855F7, #7928CA);
+        border-radius: 2px;
+        transition: width 0.3s ease;
     }
-
+    
+    #grade-title:hover::after {
+        width: 100px;
+    }
+    
+    /* Добавяме анимация при смяна на клас */
+    @keyframes titleChange {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    #grade-title.animate {
+        animation: titleChange 0.4s ease forwards;
+    }
+    
     #grade-title {
         color: #A855F7;
-    }
-
-    .subject:hover {
-        border-color: #A855F7;
-        background: rgba(168, 85, 247, 0.1);
     }
 }
 
@@ -396,8 +533,4 @@ h1::after {
     animation: titleChange 0.4s ease forwards;
 }
 
-.subject:hover {
-    border-color: #66b3ff;
-    background: #333;
-}
  
