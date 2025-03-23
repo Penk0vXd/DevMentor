@@ -13,6 +13,7 @@ body {
     color: #fff;
 }
 
+
 /* Footer Styles */
 footer {
     margin-top: auto;
@@ -226,72 +227,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-
-    .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 1100; /* Уверете се, че е над другите елементи */
-    }
-
-    .nav-toggle span {
-        background: #fff;
-        height: 3px;
-        width: 25px;
-        margin: 4px 0;
-        transition: transform 0.3s ease, background 0.3s ease;
-    }
-    
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 20px;
-        position: absolute;
-        top: 60px;
-        width: 110%;
-        z-index: 1000;
-        opacity: 0;
-        transform: scaleY(0);
-        transform-origin: top;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    
-    }
-
-    nav ul.active {
-        display: flex;
-        opacity: 1;
-        transform: scaleY(1);
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li ul {
-        position: relative;
-        top: 0;
-        left: 0;
-        display: none;
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.8);
-        border-radius: 5px;
-        padding: 10px;
-        width: 100%;
-    }
-
-    nav ul li.open ul {
-        display: flex;
-    }   
-
-
-
     .icon-grid {
         flex-wrap: wrap;
         gap: 20px;
@@ -299,17 +234,6 @@ footer {
 
     .icon-grid div {
         max-width: 150px;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header img {
-        height: 40px;
-        opacity: 0;
-        
     }
 
     .footer-content {

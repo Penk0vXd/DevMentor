@@ -1,136 +1,128 @@
+/* Общи стилове за хедъра */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
-header:hover {
-    background: rgba(0, 0, 0, 0.95);
-}
-
 header img {
-    height: 55px;
-    transition: transform 0.3s ease;
+    height: 50px;
+    transition: all 0.3s ease;
 }
 
 header img:hover {
     transform: scale(1.05);
 }
 
-nav {
-    margin-left: auto;
+/* Десктоп навигация */
+.desktop-menu {
+    display: block;
 }
 
-nav ul {
+.desktop-menu ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+.desktop-menu ul li {
     position: relative;
-    padding: 5px 0;
 }
 
-nav ul li a {
+.desktop-menu ul li a,
+.desktop-menu .submenu-label {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
     position: relative;
-    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    background: transparent;
 }
 
-/* Ефект при hover върху линковете */
-nav ul li a::before {
+/* Ефектна линия под елементите */
+.desktop-menu ul li a::after,
+.desktop-menu .submenu-label::after {
     content: '';
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 100%;
+    width: 0;
     height: 2px;
     background: linear-gradient(90deg, #A855F7, #3B82F6);
-    transform: scaleX(0);
-    transform-origin: right;
+    transition: width 0.3s ease;
+}
+
+/* Hover ефекти */
+.desktop-menu ul li a:hover,
+.desktop-menu .submenu-label:hover {
+    background: rgba(168, 85, 247, 0.1);
+    color: #A855F7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15);
+}
+
+.desktop-menu ul li a:hover::after,
+.desktop-menu .submenu-label:hover::after {
+    width: 100%;
+}
+
+/* Десктоп подменю */
+.desktop-menu .submenu-toggle {
+    display: none;
+}
+
+.desktop-menu .submenu-label {
+    cursor: pointer;
+}
+
+.desktop-menu .submenu-label::after {
+    content: '▼';
+    position: relative;
+    top: 0;
+    margin-left: 5px;
+    font-size: 0.8em;
+    background: none;
+    height: auto;
+    width: auto;
     transition: transform 0.3s ease;
 }
 
-nav ul li a:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-nav ul li a:hover {
-    color: #A855F7;
-    background: rgba(168, 85, 247, 0.1);
-}
-
-/* Стил за активната страница */
-nav ul li a.active {
-    color: #A855F7;
-    background: rgba(168, 85, 247, 0.15);
-    font-weight: 600;
-}
-
-/* Стил за падащото меню */
-nav ul li ul {
+.desktop-menu ul li ul {
     position: absolute;
     top: 100%;
     left: 0;
     background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
     border-radius: 12px;
-    min-width: 200px;
+    padding: 8px;
     display: none;
     flex-direction: column;
-    gap: 0.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(168, 85, 247, 0.1);
-}
-
-nav ul li:hover ul {
-    display: flex;
+    gap: 5px;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    backdrop-filter: blur(10px);
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
     animation: fadeIn 0.3s ease;
 }
 
-nav ul li ul li {
-    margin: 0;
-    padding: 8px;
-}
-
-nav ul li ul li a {
-    color: #fff;
-    font-size: 1rem;
-    padding: 8px 12px;
-    display: block;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-nav ul li ul li a:hover {
-    background: rgba(168, 85, 247, 0.2);
-    transform: translateX(5px);
-}
-
-/* Анимации */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -138,67 +130,233 @@ nav ul li ul li a:hover {
     }
 }
 
-/* Медия заявки за респонсивност */
-@media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-    }
-
-    nav ul {
-        gap: 1rem;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        padding: 6px 12px;
-    }
+/* Показване на подменюто */
+.desktop-menu .submenu-toggle:checked ~ ul {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
 }
 
-/* Стил за мобилното меню */
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background: #fff;
+/* Стил за елементите в подменюто */
+.desktop-menu ul li ul li a {
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
-@media (max-width: 640px) {
+.desktop-menu ul li ul li a:hover {
+    background: rgba(168, 85, 247, 0.1);
+    color: #A855F7;
+    transform: translateX(5px);
+}
+
+/* Стрелка за подменюто */
+.desktop-menu .submenu-toggle:checked ~ .submenu-label::after {
+    transform: rotate(180deg);
+}
+
+/* Активно състояние */
+.desktop-menu ul li a.active {
+    color: #A855F7;
+}
+
+.desktop-menu ul li a.active::after {
+    width: 100%;
+    background: linear-gradient(90deg, #A855F7, #3B82F6);
+}
+
+/* Скриваме мобилната навигация на десктоп */
+.mobile-nav {
+    display: none;
+}
+
+/* Мобилна навигация */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    /* Бургер бутон */
     .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1100;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: linear-gradient(90deg, #A855F7, #3B82F6);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    /* Стил за мобилното меню */
+    .mobile-menu ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.98);
+        margin: 0;
+        padding: 80px 20px 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Стил за бургер бутона когато менюто е отворено */
+    .menu-toggle:checked ~ .nav-toggle {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+    }
+
+    .menu-toggle:checked ~ .nav-toggle span {
+        background: #fff;
+    }
+
+    /* Анимация на бургер бутона */
+    .menu-toggle:checked ~ .nav-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle:checked ~ .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .nav-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Добавяме transition за по-плавна анимация */
+    .nav-toggle span {
+        transition: all 0.3s ease;
+    }
+
+    /* Мобилно меню */
+    .menu-toggle {
+        display: none;
+    }
+
+    .mobile-menu ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.98);
+        margin: 0;
+        padding: 80px 20px 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .menu-toggle:checked ~ .mobile-menu ul {
         display: flex;
     }
 
-    nav {
-        position: fixed;
-        top: 80px;
-        left: 0;
+    .mobile-menu ul li {
         width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        padding: 20px;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        text-align: center;
     }
 
-    nav.active {
-        transform: translateX(0);
+    .mobile-menu ul li a,
+    .mobile-menu .submenu-label {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 15px;
+        display: block;
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(59, 130, 246, 0.05));
+        border-radius: 8px;
+        border: 1px solid rgba(168, 85, 247, 0.1);
+        margin: 5px 0;
+        transition: all 0.3s ease;
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
+    .mobile-menu ul li a:active,
+    .mobile-menu .submenu-label:active {
+        transform: scale(0.98);
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
     }
 
-    nav ul li ul {
+    /* Мобилно подменю */
+    .mobile-menu .submenu-toggle {
+        display: none;
+    }
+
+    .mobile-menu .submenu-label {
+        cursor: pointer;
+        position: relative;
+    }
+
+    .mobile-menu .submenu-label::after {
+        content: '▼';
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s;
+    }
+
+    .mobile-menu .submenu-toggle:checked ~ .submenu-label::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+    .mobile-menu ul li ul {
         position: static;
-        background: rgba(0, 0, 0, 0.3);
-        width: 100%;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
+
+    .mobile-menu .submenu-toggle:checked ~ ul {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .mobile-menu ul li ul li a {
+        font-size: 1rem;
+        padding: 12px;
+        background: rgba(168, 85, 247, 0.08);
+        border: 1px solid rgba(168, 85, 247, 0.15);
+        transform: translateX(0);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu ul li ul li a:active {
+        transform: translateX(5px);
+    }
+
+    /* Подобряваме анимацията на бургер бутона */
+    .nav-toggle span {
+        background: linear-gradient(90deg, #A855F7, #3B82F6);
+    }
+
+    /* Добавяме индикатор за активна страница */
+    .mobile-menu ul li a.active {
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+        border-color: rgba(168, 85, 247, 0.3);
+    }
+}
+
+/* Добавяме индикатор за скрол */
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }

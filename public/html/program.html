@@ -5,33 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Учебна програма за 8-12 клас в СУ Йордан Йовков - Сливен">
     <title>Учебна програма | СУ Йордан Йовков</title>
-    <link rel="stylesheet" href="../css/program.css">
-    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/program.css">
     <link rel="stylesheet" href="../css/social.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <img src="../images/logo.png" alt="СУ Йордан Йовков" class="logo">
-        <div class="nav-toggle" onclick="toggleMenu()" aria-label="Отвори меню">
-            <span></span>
-            <span></span>
-            <span></span>
+        <img src="../images/logo.png" alt="СУ Йордан Йовков">
+
+        <!-- Мобилна навигация -->
+        <div class="mobile-nav">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="mobile-menu">
+                <ul>
+                    <li><a href="../index.html">Начало</a></li>
+                    <li><a href="">За паралелката</a></li>
+                    <li>
+                        <input type="checkbox" id="mobile-submenu-toggle" class="submenu-toggle">
+                        <label for="mobile-submenu-toggle" class="submenu-label">Обучение</label>
+                        <ul>
+                            <li><a href="../html/program.html">Учебна програма</a></li>
+                            <li><a href="#extracurricular">Извънкласни дейности</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#projects">Проекти</a></li>
+                    <li><a href="../html/contact.html">Контакти</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
+
+        <!-- Десктоп навигация -->
+        <nav class="desktop-menu">
             <ul>
                 <li><a href="../index.html">Начало</a></li>
                 <li><a href="">За паралелката</a></li>
                 <li>
-                    <a href="#program" aria-current="page">Обучение</a>
+                    <input type="checkbox" id="desktop-submenu-toggle" class="submenu-toggle">
+                    <label for="desktop-submenu-toggle" class="submenu-label">Обучение</label>
                     <ul>
-                        <li><a href="program.html" class="active">Учебна програма</a></li>
+                        <li><a href="../html/program.html">Учебна програма</a></li>
                         <li><a href="#extracurricular">Извънкласни дейности</a></li>
                     </ul>
                 </li>
                 <li><a href="#projects">Проекти</a></li>
-                <li><a href="contact.html">Контакти</a></li>
+                <li><a href="../html/contact.html">Контакти</a></li>
             </ul>
         </nav>
     </header>
@@ -63,13 +88,13 @@
             <div class="footer-section">
                 <h4>Полезни връзки</h4>
                 <ul class="footer-links-list">
-                    <li><a href="index.html">Начало</a></li>
+                    <li><a href="../index.html">Начало</a></li>
                     <li><a href="">За паралелката</a></li>
                     <li><a href="">Учебна програма</a></li>
                     <li><a href="">Извънкласни дейности</a>
-                    <li><a href="html/bal.html">Калкулатор за бал</a></li>
+                    <li><a href="../html/bal.html">Калкулатор за бал</a></li>
                     <li><a href="">Често задавани въпроси</a></li>
-                    <li><a href="html/contact.html">Контакти</a></li>
+                    <li><a href="../html/contact.html">Контакти</a></li>
                 </ul>
             </div>
 
@@ -138,12 +163,12 @@
         <div class="footer-bottom">
             <div class="footer-legal">
                 <nav class="legal-links">
-                    <a href="html/privacy-policy.html">
+                    <a href="../html/privacy-policy.html">
                         <i class="fas fa-shield-alt"></i>
                         Политика за поверителност
                     </a>
                     <span class="separator">•</span>
-                    <a href="html/terms.html">
+                    <a href="../html/terms.html">
                         <i class="fas fa-gavel"></i>
                         Условия за ползване
                     </a>
@@ -156,6 +181,5 @@
         </div>
     </footer>
     <script src="../js/program.js"></script>
-    <script src="../js/nav.js"></script>
 </body>
 </html> 

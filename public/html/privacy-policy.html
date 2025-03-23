@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Политика за поверителност - СУ "Йордан Йовков"</title>
-    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/social.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -118,18 +118,41 @@
     <header>
         <img src="../images/logo.png" alt="СУ Йордан Йовков">
 
-        <div class="nav-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- Мобилна навигация -->
+        <div class="mobile-nav">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="mobile-menu">
+                <ul>
+                    <li><a href="../index.html">Начало</a></li>
+                    <li><a href="">За паралелката</a></li>
+                    <li>
+                        <input type="checkbox" id="mobile-submenu-toggle" class="submenu-toggle">
+                        <label for="mobile-submenu-toggle" class="submenu-label">Обучение</label>
+                        <ul>
+                            <li><a href="../html/program.html">Учебна програма</a></li>
+                            <li><a href="#extracurricular">Извънкласни дейности</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#projects">Проекти</a></li>
+                    <li><a href="../html/contact.html">Контакти</a></li>
+                </ul>
+            </nav>
         </div>
 
-        <nav>
+        <!-- Десктоп навигация -->
+        <nav class="desktop-menu">
             <ul>
                 <li><a href="../index.html">Начало</a></li>
                 <li><a href="">За паралелката</a></li>
                 <li>
-                    <a href="#program">Обучение</a>
+                    <input type="checkbox" id="desktop-submenu-toggle" class="submenu-toggle">
+                    <label for="desktop-submenu-toggle" class="submenu-label">Обучение</label>
                     <ul>
                         <li><a href="../html/program.html">Учебна програма</a></li>
                         <li><a href="#extracurricular">Извънкласни дейности</a></li>
@@ -271,9 +294,6 @@
             </div>
         </div>
     </footer>
-
     <script src="../js/main.js" defer></script>
-    <script src="../js/nav.js"></script>
-
 </body>
 </html>
