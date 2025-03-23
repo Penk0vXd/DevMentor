@@ -264,11 +264,96 @@ h1::after {
     outline-offset: 2px;
 }
 
+/* Стил за празно съдържание */
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-message i {
+    color: #4a90e2 !important;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(103, 184, 255, 0.1));
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+}
+
+.empty-message p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@keyframes pointUp {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (prefers-color-scheme: dark) {   
+
+}
+
+#grade-title {
+    text-align: center;
+    color: #A855F7;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 20px 0 30px;
+    padding-bottom: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#grade-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #A855F7, #7928CA);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+#grade-title:hover::after {
+    width: 100px;
+}
+
+/* Добавяме анимация при смяна на клас */
+@keyframes titleChange {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#grade-title.animate {
+    animation: titleChange 0.4s ease forwards;
+}
+
 /* Тъмна тема */
 @media (prefers-color-scheme: dark) {
-    body {
-        background: #1a1a1a;
-    }
 
     .container {
         background: #2d2d2d;
@@ -276,6 +361,23 @@ h1::after {
 
     .curriculum-content {
         background: #333;
+    }
+
+        .empty-message {
+        background: #2d2d2d;
+        color: #e0e0e0;
+    }
+
+    .empty-message i {
+        color: #A855F7 !important;
+    }
+
+    #grade-title {
+        color: #A855F7;
+    }
+    
+    #grade-title::after {
+        background: linear-gradient(135deg, #A855F7, #7928CA);
     }
 
     
@@ -346,7 +448,6 @@ h1::after {
         padding: 40px;
         color: #666;
         font-size: 1.2rem;
-        background: white;
         border-radius: 12px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         margin: 20px 0;
@@ -430,107 +531,3 @@ h1::after {
     }
 }
 
-/* Стил за празно съдържание */
-.empty-message {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-    font-size: 1.2rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.empty-message i {
-    color: #4a90e2 !important;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(103, 184, 255, 0.1));
-    padding: 20px;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
-}
-
-.empty-message p {
-    margin: 0;
-    line-height: 1.6;
-}
-
-@keyframes pointUp {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@media (prefers-color-scheme: dark) {   
-    .empty-message {
-        background: #2d2d2d;
-        color: #e0e0e0;
-    }
-
-    .empty-message i {
-        color: #A855F7 !important;
-    }
-
-    #grade-title {
-        color: #A855F7;
-    }
-    
-    #grade-title::after {
-        background: linear-gradient(135deg, #A855F7, #7928CA);
-    }
-}
-
-#grade-title {
-    text-align: center;
-    color: #A855F7;
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin: 20px 0 30px;
-    padding-bottom: 15px;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-#grade-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(135deg, #A855F7, #7928CA);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-
-#grade-title:hover::after {
-    width: 100px;
-}
-
-/* Добавяме анимация при смяна на клас */
-@keyframes titleChange {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#grade-title.animate {
-    animation: titleChange 0.4s ease forwards;
-}
-
- 
