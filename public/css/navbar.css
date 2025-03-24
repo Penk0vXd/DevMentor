@@ -88,15 +88,11 @@ header img:hover {
 }
 
 .desktop-menu .submenu-label::after {
-    content: '▼';
-    position: relative;
-    top: 0;
-    margin-left: 5px;
-    font-size: 0.8em;
-    background: none;
-    height: auto;
-    width: auto;
-    transition: transform 0.3s ease;
+    display: none;
+}
+
+.desktop-menu .submenu-toggle:checked ~ .submenu-label::after {
+    transform: none;
 }
 
 .desktop-menu ul li ul {
@@ -105,11 +101,11 @@ header img:hover {
     left: 0;
     background: rgba(0, 0, 0, 0.95);
     border-radius: 12px;
-    padding: 8px;
+    padding: 12px;
     display: none;
     flex-direction: column;
-    gap: 5px;
-    min-width: 200px;
+    gap: 8px;
+    min-width: 240px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(168, 85, 247, 0.2);
     backdrop-filter: blur(10px);
@@ -138,22 +134,15 @@ header img:hover {
 }
 
 /* Стил за елементите в подменюто */
-.desktop-menu ul li ul li a {
+.desktop-menu ul li ul a {
     padding: 10px 15px;
-    font-size: 14px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    font-size: 1.05rem;
 }
 
 .desktop-menu ul li ul li a:hover {
     background: rgba(168, 85, 247, 0.1);
     color: #A855F7;
     transform: translateX(5px);
-}
-
-/* Стрелка за подменюто */
-.desktop-menu .submenu-toggle:checked ~ .submenu-label::after {
-    transform: rotate(180deg);
 }
 
 /* Активно състояние */
@@ -181,14 +170,17 @@ header img:hover {
         display: block;
     }
 
-    /* Бургер бутон */
+    /* Стилове за бургер бутона */
     .nav-toggle {
+        position: fixed;
+        top: 15px;
+        right: 20px;
         display: flex;
         flex-direction: column;
         gap: 6px;
         cursor: pointer;
         padding: 10px;
-        z-index: 1100;
+        z-index: 3001;
     }
 
     .nav-toggle span {
@@ -200,6 +192,21 @@ header img:hover {
         border-radius: 2px;
     }
 
+    /* Анимация на бургер бутона в X */
+    .menu-toggle:checked ~ .nav-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+        background: linear-gradient(90deg, #A855F7, #3B82F6);
+    }
+
+    .menu-toggle:checked ~ .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .nav-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+        background: linear-gradient(90deg, #A855F7, #3B82F6);
+    }
+
     /* Стил за мобилното меню */
     .mobile-menu ul {
         display: none;
@@ -208,61 +215,18 @@ header img:hover {
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.98);
+        background: rgba(0, 0, 0, 0.9); /* Черен полупрозрачен фон */
         margin: 0;
         padding: 80px 20px 20px;
         flex-direction: column;
         align-items: center;
         gap: 15px;
-    }
-
-    /* Стил за бургер бутона когато менюто е отворено */
-    .menu-toggle:checked ~ .nav-toggle {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-    }
-
-    .menu-toggle:checked ~ .nav-toggle span {
-        background: #fff;
-    }
-
-    /* Анимация на бургер бутона */
-    .menu-toggle:checked ~ .nav-toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .menu-toggle:checked ~ .nav-toggle span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle:checked ~ .nav-toggle span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Добавяме transition за по-плавна анимация */
-    .nav-toggle span {
-        transition: all 0.3s ease;
+        list-style: none;
     }
 
     /* Мобилно меню */
     .menu-toggle {
         display: none;
-    }
-
-    .mobile-menu ul {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.98);
-        margin: 0;
-        padding: 80px 20px 20px;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
     }
 
     .menu-toggle:checked ~ .mobile-menu ul {
@@ -305,16 +269,11 @@ header img:hover {
     }
 
     .mobile-menu .submenu-label::after {
-        content: '▼';
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: transform 0.3s;
+        display: none;
     }
 
     .mobile-menu .submenu-toggle:checked ~ .submenu-label::after {
-        transform: translateY(-50%) rotate(180deg);
+        transform: none;
     }
 
     .mobile-menu ul li ul {
@@ -323,6 +282,7 @@ header img:hover {
         padding: 0;
         overflow: hidden;
         transition: all 0.3s ease;
+        background: transparent;
     }
 
     .mobile-menu .submenu-toggle:checked ~ ul {
@@ -333,7 +293,7 @@ header img:hover {
     .mobile-menu ul li ul li a {
         font-size: 1rem;
         padding: 12px;
-        background: rgba(168, 85, 247, 0.08);
+        background: rgba(49, 7, 89, 0.11);
         border: 1px solid rgba(168, 85, 247, 0.15);
         transform: translateX(0);
         transition: all 0.3s ease;
@@ -343,20 +303,14 @@ header img:hover {
         transform: translateX(5px);
     }
 
-    /* Подобряваме анимацията на бургер бутона */
-    .nav-toggle span {
-        background: linear-gradient(90deg, #A855F7, #3B82F6);
-    }
-
-    /* Добавяме индикатор за активна страница */
-    .mobile-menu ul li a.active {
-        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
-        border-color: rgba(168, 85, 247, 0.3);
-    }
 }
 
 /* Добавяме индикатор за скрол */
 header.scrolled {
     background-color: rgba(0, 0, 0, 0.98);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 769px) {
+
 }
