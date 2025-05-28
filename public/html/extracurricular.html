@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Извънкласни дейности - СУ "Йордан Йовков"</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/social.css">
+    <link rel="stylesheet" href="../css/extracurricularActivities.css">
+    <link rel="stylesheet" href="../css/scrollBar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+    <!-- Контейнер за хедъра -->
+    <div id="header-container"></div>
+
+    <section class="hero-coding">
+        <canvas id="particle-canvas"></canvas>
+        
+        <div class="floating-objects">
+            <div class="floating-object" id="cube"></div>
+            <div class="floating-object" id="sphere"></div>
+            <div class="floating-object" id="pyramid"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Извънкласни дейности</h1>
+            <p class="hero-subtitle">Място, където теорията се превръща в практика, а креативността води до иновации</p>
+        </div>
+
+        <div class="code-container">
+            <div class="code-editor">
+                <div class="code-editor-header">
+                    <div class="code-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="code-title">coding_skills.js</div>
+                </div>
+                <div class="code-content">
+                    <pre><code class="language-javascript">
+<span class="code-comment">// Интерактивна анимация на частиците</span>
+<span class="code-keyword">class</span> <span class="code-class">ParticleSystem</span> {
+    <span class="code-keyword">constructor</span>() {
+        <span class="code-this">this</span>.particles = [];
+        <span class="code-this">this</span>.connections = [];
+        <span class="code-this">this</span>.mouse = {
+            x: <span class="code-number">0</span>,
+            y: <span class="code-number">0</span>,
+            radius: <span class="code-number">150</span>
+        };
+    }
+
+    <span class="code-keyword">init</span>(canvas) {
+        <span class="code-comment">// Инициализиране на системата</span>
+        <span class="code-this">this</span>.ctx = canvas.getContext(<span class="code-string">'2d'</span>);
+        <span class="code-this">this</span>.width = canvas.width;
+        <span class="code-this">this</span>.height = canvas.height;
+        <span class="code-this">this</span>.createParticles();
+        <span class="code-this">this</span>.animate();
+    }
+
+    <span class="code-keyword">createParticles</span>() {
+        <span class="code-keyword">const</span> particleCount = <span class="code-number">100</span>;
+        <span class="code-keyword">for</span> (<span class="code-keyword">let</span> i = <span class="code-number">0</span>; i < particleCount; i++) {
+            <span class="code-this">this</span>.particles.push({
+                x: Math.random() * <span class="code-this">this</span>.width,
+                y: Math.random() * <span class="code-this">this</span>.height,
+                vx: Math.random() * <span class="code-number">2</span> - <span class="code-number">1</span>,
+                vy: Math.random() * <span class="code-number">2</span> - <span class="code-number">1</span>,
+                size: Math.random() * <span class="code-number">5</span> + <span class="code-number">1</span>,
+                color: <span class="code-string">'#'</span> + ((Math.random() * <span class="code-number">0xffffff</span>) << <span class="code-number">0</span>).toString(<span class="code-number">16</span>).padStart(<span class="code-number">6</span>, <span class="code-string">'0'</span>)
+            });
+        }
+    }
+
+    <span class="code-keyword">animate</span>() {
+        <span class="code-this">this</span>.update();
+        <span class="code-this">this</span>.draw();
+        requestAnimationFrame(() => <span class="code-this">this</span>.animate());
+    }
+
+    <span class="code-keyword">update</span>() {
+        <span class="code-comment">// Актуализиране на частиците</span>
+        <span class="code-keyword">for</span> (<span class="code-keyword">let</span> particle of <span class="code-this">this</span>.particles) {
+            <span class="code-comment">// Интерактивност с мишката</span>
+            <span class="code-keyword">const</span> dx = particle.x - <span class="code-this">this</span>.mouse.x;
+            <span class="code-keyword">const</span> dy = particle.y - <span class="code-this">this</span>.mouse.y;
+            <span class="code-keyword">const</span> dist = Math.sqrt(dx * dx + dy * dy);
+            
+            <span class="code-keyword">if</span> (dist < <span class="code-this">this</span>.mouse.radius) {
+                <span class="code-keyword">const</span> force = (<span class="code-this">this</span>.mouse.radius - dist) / <span class="code-this">this</span>.mouse.radius;
+                particle.vx += dx * force * <span class="code-number">0.05</span>;
+                particle.vy += dy * force * <span class="code-number">0.05</span>;
+            }
+
+            <span class="code-comment">// Актуализиране на позициите</span>
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+
+            <span class="code-comment">// Отражения от границите</span>
+            <span class="code-keyword">if</span> (particle.x < <span class="code-number">0</span> || particle.x > <span class="code-this">this</span>.width) particle.vx *= -<span class="code-number">1</span>;
+            <span class="code-keyword">if</span> (particle.y < <span class="code-number">0</span> || particle.y > <span class="code-this">this</span>.height) particle.vy *= -<span class="code-number">1</span>;
+        }
+    }
+    
+    <span class="code-keyword">draw</span>() {
+        <span class="code-comment">// Изчистване на платното</span>
+        <span class="code-this">this</span>.ctx.clearRect(<span class="code-number">0</span>, <span class="code-number">0</span>, <span class="code-this">this</span>.width, <span class="code-this">this</span>.height);
+        
+        <span class="code-comment">// Рисуване на свързващи линии</span>
+        <span class="code-this">this</span>.drawConnections();
+        
+        <span class="code-comment">// Рисуване на частиците</span>
+        <span class="code-keyword">for</span> (<span class="code-keyword">let</span> particle of <span class="code-this">this</span>.particles) {
+            <span class="code-this">this</span>.ctx.beginPath();
+            <span class="code-this">this</span>.ctx.arc(particle.x, particle.y, particle.size, <span class="code-number">0</span>, Math.PI * <span class="code-number">2</span>);
+            <span class="code-this">this</span>.ctx.fillStyle = particle.color;
+            <span class="code-this">this</span>.ctx.fill();
+        }
+    }
+    
+    <span class="code-keyword">drawConnections</span>() {
+        <span class="code-keyword">for</span> (<span class="code-keyword">let</span> i = <span class="code-number">0</span>; i < <span class="code-this">this</span>.particles.length; i++) {
+            <span class="code-keyword">for</span> (<span class="code-keyword">let</span> j = i + <span class="code-number">1</span>; j < <span class="code-this">this</span>.particles.length; j++) {
+                <span class="code-keyword">const</span> dx = <span class="code-this">this</span>.particles[i].x - <span class="code-this">this</span>.particles[j].x;
+                <span class="code-keyword">const</span> dy = <span class="code-this">this</span>.particles[i].y - <span class="code-this">this</span>.particles[j].y;
+                <span class="code-keyword">const</span> distance = Math.sqrt(dx * dx + dy * dy);
+                
+                <span class="code-keyword">if</span> (distance < <span class="code-number">100</span>) {
+                    <span class="code-this">this</span>.ctx.beginPath();
+                    <span class="code-this">this</span>.ctx.strokeStyle = <span class="code-string">`rgba(255, 255, 255, ${1 - distance / 100})`</span>;
+                    <span class="code-this">this</span>.ctx.lineWidth = <span class="code-number">0.5</span>;
+                    <span class="code-this">this</span>.ctx.moveTo(<span class="code-this">this</span>.particles[i].x, <span class="code-this">this</span>.particles[i].y);
+                    <span class="code-this">this</span>.ctx.lineTo(<span class="code-this">this</span>.particles[j].x, <span class="code-this">this</span>.particles[j].y);
+                    <span class="code-this">this</span>.ctx.stroke();
+                }
+            }
+        }
+    }
+}
+
+<span class="code-comment">// Създаване на нова система частици</span>
+<span class="code-keyword">const</span> particleSystem = <span class="code-keyword">new</span> <span class="code-class">ParticleSystem</span>();
+
+<span class="code-comment">// Инициализиране при зареждане на страницата</span>
+window.addEventListener(<span class="code-string">'load'</span>, () => {
+    <span class="code-keyword">const</span> canvas = document.getElementById(<span class="code-string">'particle-canvas'</span>);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight * <span class="code-number">0.7</span>;
+    particleSystem.init(canvas);
+});
+
+<span class="code-comment">// Проследяване на мишката</span>
+window.addEventListener(<span class="code-string">'mousemove'</span>, (event) => {
+    particleSystem.mouse.x = event.clientX;
+    particleSystem.mouse.y = event.clientY;
+});
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-icons-container">
+            <div class="hero-icons">
+                <div class="hero-icon">
+                    <i class="fas fa-code"></i>
+                    <span>Програмиране</span>
+                </div>
+                <div class="hero-icon">
+                    <i class="fas fa-microchip"></i>
+                    <span>Роботика</span>
+                </div>
+                <div class="hero-icon">
+                    <i class="fas fa-brain"></i>
+                    <span>AI</span>
+                </div>
+                <div class="hero-icon">
+                    <i class="fas fa-theater-masks"></i>
+                    <span>Творчество</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-indicator-container">
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+            <div class="scroll-text">Разгледай дейностите</div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <section class="activity-section" data-section="Arduino Club">
+            <div class="activity-image">
+                <img src="../images/ArduinoClub.png" alt="Club Arduino">
+            </div>
+            <div class="activity-content">
+                <h2 class="activity-title" >Клуб "Arduino"</h2>
+                <p class="activity-description">
+                    Клуб "Arduino" запознава участниците с основите на електричеството, микроконтролерите и вградените системи чрез работа с платките Arduino. Участниците научават как да инсталират Arduino IDE, да пишат програми, да свързват светодиоди, сензори и серво мотори, както и да използват Bluetooth. 
+                    Те разработват и представят собствени проекти, включително и интеграция с MIT App Inventor за по-сложни функционалности.
+                </p>
+            </div>
+        </section>
+
+        <section class="activity-section" data-section="Club AI">
+            <div class="activity-image">
+                <img src="../images/AI.png" alt="AI">
+            </div>
+            <div class="activity-content">
+                <h2 class="activity-title">Клуб "Генерация AI"</h2>
+                <p class="activity-description">
+                    Клуб "Генерация AI" е създаден за ученици с интерес към изкуствения интелект и неговите приложения.
+                     Участниците ще се запознаят с историята и развитието на AI, ще изследват генеративни модели, AI чатботове 
+                     и ще усъвършенстват уменията си в инженерството на запитванията и инструменти за създаване на мултимедия, 
+                     както и с предизвикателствата и ограниченията на AI, развивайки практически умения за работа с тези технологии.
+                </p>
+            </div>
+        </section>
+        <section class="activity-section" data-section="Theatre Club One">
+            <div class="activity-image">
+                <img src="../images/MeAndStage.png" alt="TheatreClub">
+            </div>
+            <div class="activity-content">
+                <h2 class="activity-title">Клуб "Аз и сцената"</h2>
+                <p class="activity-description">
+                    В театралната група учениците имат възможност да разгърнат въображението си и да се потопят в магията на театъра 
+                    и литературата. Те не само излизат на сцената като актьори, но и активно участват в техническата страна на 
+                    спектаклите – озвучаване, осветление и музикално оформление. <br>
+                    Чрез тази творческа работа те развиват социални умения, учат се да работят в екип и създават трайни приятелства. 
+                    Театърът им помага да открият нови страни на себе си, да надградят личностните си качества и да изразяват по-смело
+                    мислите и емоциите си. Това не е просто занимание, а път на израстване и вдъхновение, който оставя у тях ценни 
+                    спомени и любов към изкуството.</p>
+            </div>
+        </section>
+        <section class="activity-section" data-section="Theatre Club Two">
+            <div class="activity-image">
+                <img src="../images/TheatreClub.png" alt="StarsIntheHair">
+            </div>
+            <div class="activity-content">
+                <h2 class="activity-title">Клуб "Творческа работилница"</h2>
+                <p class="activity-description">
+                    В училищната театрална група учениците развиват своята креативност и усет към изкуствата. 
+                    Те не само играят роли, но и участват в създаването на декори, костюми и музикално оформление. 
+                    Това ги учи на работа в екип, дисциплина и толерантност. Театралните занимания развиват увереност 
+                    и комуникативни умения. Учениците откриват нови таланти и обогатяват своя артистичен поглед. Репетициите 
+                    и представленията създават незабравими спомени и укрепват приятелствата. Театърът ги вдъхновява да изразяват
+                    себе си творчески. Чрез него те преживяват различни светове и съдби. Учат се да представят идеи и емоции пред 
+                    публика. Така израстват като вдъхновени и уверени личности.
+                </p>
+            </div>
+        </section>
+    </div> 
+
+    <!-- Контейнер за футъра -->
+    <div id="footer-container"></div>
+
+    <!-- Добавяме скрипта за общите компоненти пръв -->
+    <script src="../js/common.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/effects.js" defer></script>
+    <script src="../js/extracurricularActivities.js" defer></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Функционалност на скрол индикатора
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', function() {
+                const containerSection = document.querySelector('.container');
+                if (containerSection) {
+                    containerSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+        
+        // Подобряване на контраста при ховър върху иконите
+        const heroIcons = document.querySelectorAll('.hero-icon');
+        heroIcons.forEach(icon => {
+            icon.addEventListener('mouseover', function() {
+                this.querySelector('span').style.textShadow = '0 0 10px rgba(0, 0, 0, 0.9), 0 0 15px rgba(116, 79, 255, 0.8)';
+            });
+            
+            icon.addEventListener('mouseout', function() {
+                this.querySelector('span').style.textShadow = '';
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>

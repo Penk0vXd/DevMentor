@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекти - СУ "Йордан Йовков"</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/social.css">
+    <link rel="stylesheet" href="../css/projects.css">
+    <link rel="stylesheet" href="../css/scrollBar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Контейнер за хедъра -->
+    <div id="header-container"></div>
+
+    <h1>Проекти на нашите ученици</h1>
+
+    <div class="site-banner-container">
+        <iframe src="https://www.programisti.com/" class="site-banner-iframe" frameborder="0"></iframe>
+        <p class="site-banner-text">Този уебсайт е изцяло наше творение – учениците от СУ "Йордан Йовков". Създадохме го в рамките на иновативната менторска програма по програмиране DevMentor – инициатива, разработена и въведена от нашето училище, която цели да подкрепи и насърчи обмена на знания и умения между по-опитните и новопостъпилите ученици. Със съвместни усилия и креативност разработихме платформа "от ученици за ученици", която представя богатите възможности и високото ниво на професионалната паралелка, като акцентира върху качеството на знанията и уменията, придобити от нас в училище. DevMentor е не просто програма, а уникална възможност, която ни помага да изградим професионални и личностни качества, необходими за успешна реализация в света на технологиите.</p>
+    </div>
+<div class="projects-container">
+    <div class="project-card">
+        <img src="../images/Hand.jpg" alt="RoboHand.1" class="project-image">
+        <h3 class="project-title">Роботизирана ръка v2</h3>
+        <p class="project-description">
+            Разработихме още една роботизирана ръка, която може да се управлява чрез комбинация от различни Python библиотеки за компютърно зрение. 
+            Те позволяват на системата да разпознава жестове, предоставяйки възможности за контрол. 
+            Ръката е изградена от компоненти, принтирани на 3D принтер в училище. 
+            Задвижването се осъществява чрез нишки и сервомотори, които осигуряват плавни движения на пръстите. 
+            Кодът е написан на C++ в Arduino IDE, като включва управление на мотори и интерпретиране на команди от python библиотеки - future, opencv-python, cvzone, Pillow, mediapipe, serial, pyserial. 
+        </p>
+            <div class="tech-stack">
+            <span class="tech-tag">Arduino Nano</span>
+            <span class="tech-tag">Programs for computer vision</span>
+            <span class="tech-tag">Micro Servo Motor MG996R </span>
+            <span class="tech-tag">3D printed components</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="../images/ParkingProject.jpg" alt="Parking" class="project-image">
+        <h3 class="project-title">Паркинг</h3>
+        <p class="project-description">
+            Разработихме макет на иновативен автоматизиран паркинг, който следи броя на свободните места и улеснява проследяването им чрез сензори, дисплей и сервомотор. 
+            При влизане на автомобил сензор засича присъствието му, бариерата се вдига автоматично, а броят на наличните паркоместа се актуализира в реално 
+            време и се визуализира на дисплея. Ако паркингът е пълен, системата известява посетителите и не позволява влизане, докато не се освободи място.        
+        <br><br> 
+        <div class="tech-stack">
+            <span class="tech-tag">Arduino Nano</span>
+            <span class="tech-tag">IR Sensors</span>
+            <span class="tech-tag">LCD Display</span>
+            <span class="tech-tag">Micro Servo Motors SG90</span>
+            <span class="tech-tag">3D printed components</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="../images/Mini Robots.jpg" alt="Robot" class="project-image">
+        <h3 class="project-title">Мини роботи</h3>
+        <p class="project-description">Тези мини роботи са създадени с Micro:bit контролер и ултразвукови сензори, което им позволява автономно движение и разпознаване 
+            на препятствия. Всеки робот разполага с ултразвуков сензор, който измерва разстоянието до обекти, и LED индикатори, които сигнализират различни 
+            състояния. Micro:bit контролерът осигурява управление, а вградените сензори като акселерометър и жироскоп помагат за стабилност и допълнителни 
+            функционалности. Разполгат и с инфрачервени сензори за следене на линия.
+        </p>
+        <div class="tech-stack">
+            <span class="tech-tag">Micro:bit</span>
+            <span class="tech-tag">Motors</span>
+            <span class="tech-tag">Ultrasonic sensor</span>
+            <span class="tech-tag">IR Sensors</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="../images/RoboHand.jpg" alt="RoboHand.2" class="project-image">
+        <h3 class="project-title">Роботизирана ръка</h3>
+        <p class="project-description">
+            Разработихме иновативен проект – роботизирана ръка, която може да се управлява дистанционно чрез Arduino и Bluetooth. Този проект е част от извънкласните 
+            дейности в клуб "Arduino" и демонстрира практическото приложение на електрониката, програмирането и механиката. Ръката е изградена от компоненти, 
+            принтирани на 3D принтер в училище. Контролира се чрез мобилно приложение, разработено с MIT App Inventor, което комуникира с Arduino чрез Bluetooth. 
+            За задвижването са използвани нишки и серво мотори, които осигуряват плавни движения на пръстите. Кодът е написан на C++ в Arduino IDE, като включва 
+            управление на мотори и интерпретиране на команди от мобилното приложение чрез Bluetooth.  
+        <div class="tech-stack">
+            <span class="tech-tag">Arduino Nano</span>
+            <span class="tech-tag">Micro Servo Motors SG90</span>
+            <span class="tech-tag">3D printed components</span>
+            <span class="tech-tag">MIT App Inventor</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="../images/eyesProject.jpg" alt="RoboEyes" class="project-image">
+        <h3 class="project-title">Роботизирани очи</h3>
+        <p class="project-description">
+            Тези роботизирани очи са изработени с помощта на 3D принтирани компоненти и сервомотори, които осигуряват реалистично движение в различни посоки.
+            Системата се управлява чрез микроконтролер, който координира движенията на очите въз основа на предварително зададени команди или входни данни от сензори/джойстик. 
+            Очите могат да се въртят нагоре, надолу, наляво и надясно, като създават ефект на проследяване на обекти. 
+            <div class="tech-stack">
+            <span class="tech-tag">Arduino Nano</span>
+            <span class="tech-tag">Micro Servo Motors SG90 </span>
+            <span class="tech-tag">Joystick</span>
+            <span class="tech-tag">3D printed components</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="../images/LegoRobot.jpg" alt="LegoRobot" class="project-image">
+        <h3 class="project-title">Лего робот</h3>
+        <p class="project-description">
+            Този Лего робот е създаден с помощта на LEGO Mindstorms EV3, което му позволява да изпълнява различни задачи чрез програмируем контролер и сензори. 
+            Конструкцията му е изградена от Лего елементи, които могат да бъдат комбинирани по различни начини за създаване на различни видове роботи. Учениците го 
+            програмират сами и го използват за решаване на реални задачи по роботика и автоматизация.        <br><br> 
+        </p>
+        <div class="tech-stack">
+            <span class="tech-tag">LEGO Mindstorms EV3</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="../images/Car.jpg" alt="LegoRobot" class="project-image">
+        <h3 class="project-title">Роботизирана кола</h3>
+        <p class="project-description">
+            Този проект представлява Bluetooth-управляема кола, която се контролира чрез мобилно приложение. Изградена е с помощта на Arduino и използва 
+            Bluetooth модул HC-05, който позволява безжична комуникация между смартфона и микроконтролера. Колата се задвижва от четири мотора, свързани 
+            към L298N мотор драйвер, който управлява скоростта и посоката на движение. Управлението се осъществява чрез специално разработено от нас мобилно приложение, което 
+            изпраща команди до Arduino. Потребителят може да управлява колата напред, назад, наляво и надясно. Проектът е чудесен за начинаещи в роботиката и IoT, 
+            защото демонстрира основите на безжичното управление и работата с електронни компоненти.  
+        </p>
+        <div class="tech-stack">
+            <span class="tech-tag">Arduino Nano</span>
+            <span class="tech-tag">Bluetooth Module</span>
+            <span class="tech-tag">Batteries HC-05</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="../images/Computer.jpg" alt="RoboEyes" class="project-image">
+        <h3 class="project-title">Отворен компютърен setup</h3>
+        <p class="project-description">
+            Този отворен компютърен setup е създаден от ученици. Той осигурява лесен достъп и добра видимост на всички компоненти, 
+            улеснявайки практическите занимания. Използва се за тестове, диагностика, бенчмарк с различни компоненти и изучаване на 
+            хардуера като процесори, видеокарти, памети и др. Отвореният дизайн позволява лесно модифициране и надграждане. Учениците 
+            провеждат експерименти, обучават се на овърклокинг и демонстрират уменията си по хардуерна поддръжка и сглобяване. Този 
+            проект насърчава иновациите и практическите умения на ученици.
+            <div class="tech-stack">
+            <span class="tech-tag">CPU</span>
+            <span class="tech-tag">SSD</span>
+            <span class="tech-tag">HDD</span>
+            <span class="tech-tag">PSU</span>
+            <span class="tech-tag">Monitor</span>
+            <span class="tech-tag">Motherboard</span>
+            <span class="tech-tag">Keypad</span>
+            <span class="tech-tag">Mouse</span>
+        </div>
+    </div>
+</div>
+
+        <div class="construction-gif">
+            <img src="../images/programmerGif.gif" alt="В процес на разработка" class="construction-gif">
+            <h2  class="construction-text">Страницата е в процес на разработка "колегите" работят...</h2>
+        </div>
+
+    <!-- Контейнер за футъра -->
+    <div id="footer-container"></div>
+    
+    <!-- Добавяме скрипта за общите компоненти пръв -->
+    <script src="../js/common.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/effects.js" defer></script>
+    <script src="../js/projects.js" defer></script>
+</body>
+</html>
